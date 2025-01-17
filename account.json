@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "variant": {
+    "type": "open_zeppelin",
+    "version": 1,
+    "public_key": "0x1272cb3f87cacb5d0967cfa59c05fdbadc31d3df6b5a5ae82c029bfd476b76e",
+    "legacy": false
+  },
+  "deployment": {
+    "status": "deployed",
+    "class_hash": "0x4a444ef8caf8fa0db05da60bf0ad9bae264c73fa7e32c61d245406f5523174b",
+    "address": "0x563e810d8414fd6736c860522813ee38f29ba3da3c09c478b4cc49062bcbbfb"
+  },
+  "rpc": {
+    "endpoint": "https://sepolia.starknet.io"
+  }
+}

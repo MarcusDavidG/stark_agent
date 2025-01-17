@@ -7,6 +7,24 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Configuring the RPC Endpoint
+
+To interact with Starknet using Starkli, you can configure a custom RPC endpoint. This can be done in two ways:
+
+1. **Using the --rpc flag**:
+   You can specify the RPC endpoint directly when running Starkli by using the `--rpc` flag. For example:
+   ```
+   starkli --network=sepolia --rpc=https://your-custom-rpc-endpoint
+   ```
+
+2. **Setting the STARKNET_RPC environment variable**:
+   Alternatively, you can set the `STARKNET_RPC` environment variable in your shell:
+   ```bash
+   export STARKNET_RPC=https://your-custom-rpc-endpoint
+   ```
+
+Make sure to replace `https://your-custom-rpc-endpoint` with the actual RPC endpoint you wish to use.
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
@@ -47,4 +65,3 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
