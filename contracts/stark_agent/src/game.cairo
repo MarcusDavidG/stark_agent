@@ -7,9 +7,9 @@ pub trait IGame<TContractState> {
 pub mod Game {
 
     use super::{IGame};
-    use starknet::{ContractAddress, get_caller_address};
+    use starknet::{ContractAddress, get_caller_address, storage::{StorableStoragePointerReadAccess, StoragePointerWriteAccess}};
 
-    use game_contract::erc20_interface::{IERC20Dispatcher, IERC20DispatcherTrait};
+    use stark_agent::erc20_interface::{IERC20Dispatcher, IERC20DispatcherTrait};
 
     #[constructor]
     fn constructor(ref self: ContractState, _token_addr: ContractAddress) {
