@@ -12,7 +12,8 @@ pub mod Game {
     use stark_agent::erc20_interface::{IERC20Dispatcher, IERC20DispatcherTrait};
 
     #[constructor]
-    fn constructor(ref self: ContractState, _token_addr: ContractAddress) {
+    fn constructor(ref self: ContractState) {
+        let _token_addr:ContractAddress = 0x04718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d.try_into().unwrap();
         self.token_address.write(_token_addr);
     }
 

@@ -25,6 +25,66 @@ To interact with Starknet using Starkli, you can configure a custom RPC endpoint
 
 Make sure to replace `https://your-custom-rpc-endpoint` with the actual RPC endpoint you wish to use.
 
+## Declaring a Smart Contract
+
+A contract can be declared on Starknet using Starkli by running the following command:
+
+```bash
+starkli declare target/dev/<CONTRACT_NAME>.contract_class.json --network=sepolia
+```
+
+When using `starkli declare`, Starkli will do its best to identify the compiler version of the declared class. In case it fails, the `--compiler-version` flag can be used to specify the version of the compiler as follows:
+
+To find the compiler versions supported by Starkli, run:
+
+```bash
+starkli declare --help
+```
+
+and look for the possible values of the `--compiler-version` flag.
+
+To find the current Scarb version in use, run:
+
+```bash
+scarb --version
+```
+
+If a different compiler version is required, switch to a different Scarb version using `asdf`:
+
+1. Install the desired Scarb version:
+   ```bash
+   asdf install scarb <VERSION>
+   ```
+
+2. Select the desired Scarb version as the local version for the project:
+   ```bash
+   asdf local scarb <VERSION>
+   ```
+
+### Example of Declaring a Contract
+
+Here is an example of declaring a contract with both a custom RPC endpoint (provided by Infura) and a specific compiler version:
+
+```bash
+starkli declare target/dev/<CONTRACT_NAME>.contract_class.json \
+    --rpc=https://starknet-sepolia.infura.io/v3/<API_KEY> \
+    --compiler-version=2.6.0
+```
+
+### Expected Result
+
+The output of a successful contract declaration using Starkli should resemble the following:
+
+```
+Class hash declared: <CLASS_HASH>
+```
+
+On the other hand, if the contract you are declaring has previously been declared, the output should resemble the following:
+
+```
+Not declaring class as it's already declared. Class hash: <CLASS_HASH>
+```
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
